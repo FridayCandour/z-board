@@ -1,0 +1,32 @@
+project info {
+name: "PayPaddy"
+description: "fintech"
+amount: 250
+}
+
+task.prototype {
+title: ""
+description: ""
+status: "not stated"
+source: "derek"
+time: "3 days"
+for: "friday"
+create date: "02-08-2023"
+deadline: "25-8-2023"
+}
+
+task {
+design the pages skeleton
+}
+task {
+design the page styling
+}
+task {
+design the functionality
+}
+task {
+integrate api
+}
+task {  
+ test and wait
+}
