@@ -1,25 +1,19 @@
 #!/bin/bash
-
-# Color variables
-blue='\033[0;34m'
-green='\033[0;32m'
-clear='\033[0m'
-
-
+ 
 repo="z-board"
 branch="main"
 
-echo  "${blue} pulling from git!${clear}"
-echo ""
-echo  "${green} pushing to git!${clear}"
+echo  "  pulling from git! "
+echo  "  pushing to git! "
 git add .  
-echo  "${blue} i need your commit message!${clear}"
+echo  "  i need your commit message! "
 read -p "Commit message please! " desc  
 echo "the commit message is $desc"
 git commit -m "$desc"  
 repo_url="https://${KN}:${KT}@github.com/${KN}/${repo}.git"
 git push $repo_url $branch
-echo  "${green} am done with the task! good luck${clear}"
+echo  " am done with the task! good luck "
+echo ""
 echo ""
 
  
