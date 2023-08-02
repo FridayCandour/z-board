@@ -7,7 +7,6 @@ clear='\033[0m'
 
 
 repo="z-board"
-repo_url="https://${KN}:${KT}@github.com/user/${repo}.git"
 branch="main"
 
 echo  "${blue} pulling from git!${clear}"
@@ -18,6 +17,7 @@ echo  "${blue} i need your commit message!${clear}"
 read -p "Commit message please! " desc  
 echo "the commit message is $desc"
 git commit -m "$desc"  
+repo_url="https://${KN}:${KT}@github.com/${KN}/${repo}.git"
 git push $repo_url $branch
 echo  "${green} am done with the task! good luck${clear}"
 echo ""
