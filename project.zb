@@ -8,7 +8,7 @@ task.prototype {
 title: ""
 description: ""
 status: "not stated"
-source: "derek"
+source: "uiedbook"
 time: "3 days"
 for: "friday"
 create date: "02-08-2023"
@@ -28,5 +28,5 @@ task {
 integrate api
 }
 task {  
- test and wait
+ test and deploy
 }

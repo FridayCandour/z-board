@@ -5,11 +5,11 @@ description: "fintech"
 amount: 250
 }
 
-task.prototype {
+task.prototype { 
 title: ""
 description: "money"
 status: "not stated"
-source: "derek"
+source: "uiedbook"
 days: 3
 for: "friday"
 create date: "02-08-2023"
@@ -22,20 +22,10 @@ design the pages skeleton
 }
 
 task {
-design the page styling
+  design the page styling
+  boohoo
 }
-
-task {
-design the functionality
-}
-
-task {
-integrate api
-} 
-
-task {  
- test and wait
-}
+ 
 
 `;
 
@@ -58,9 +48,6 @@ class Z_BOARD {
     try {
       for (; i < lines.length; i++) {
         const line = lines[i].trim();
-        // if (line.startsWith("#")) {
-        //   continue;
-        // } else {
         if (line.endsWith("{")) {
           // prototype
           if (line.includes(".prototype")) {
@@ -78,7 +65,7 @@ class Z_BOARD {
               PrototypeIndex = 0;
             } else {
               if (Array.isArray(obj[currentKey])) {
-                PrototypeIndex += 1;
+                // PrototypeIndex += 1;
                 obj[currentKey].push(currentPrototype);
               }
             }
@@ -102,32 +89,56 @@ class Z_BOARD {
                 : Number(value);
             } else {
               if (currentKey) {
-                obj[currentKey][PrototypeIndex - 1][
-                  currentPrototypeKeys[PrototypeKeyIndex]
-                ] = line.trim();
+                console.log({
+                  op: obj[currentKey][PrototypeIndex],
+                  key: currentPrototypeKeys[PrototypeKeyIndex],
+                  PrototypeIndex,
+                });
+                // console.log(
+                //   currentKey,
+                //   PrototypeIndex,
+                //   currentPrototypeKeys,
+                //   PrototypeKeyIndex,
+                //   line
+                // );
+
+                if (
+                  !obj[currentKey][PrototypeIndex][
+                    currentPrototypeKeys[PrototypeKeyIndex]
+                  ]
+                ) {
+                  obj[currentKey][PrototypeIndex][
+                    currentPrototypeKeys[PrototypeKeyIndex]
+                  ] = line.trim();
+                }
                 PrototypeKeyIndex += 1;
               }
             }
           }
         }
       }
-      // }
     } catch (error) {
+      const dev = true;
+      if (dev) {
+        console.log(error);
+        return {};
+      }
       console.error(lines[i]);
       throw new Error(" unable parser syntax error at line " + i);
     }
     return obj;
   }
-  save() {}
+  // save() {}
   // add(value: Record<string, unknown> | string) {}
   // parse(value: string) {}
   // stringify(value: Record<string, unknown>) {}
   // compress() {}
-  expand() {}
+  // expand() {}
 }
 
-const Zboard = new Z_BOARD();
+const Board = new Z_BOARD();
 
-const configs = Zboard.read(s);
+const configs = Board.read(s);
 
-console.log(configs);
+console.log(configs.task);
+console.log(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>");
