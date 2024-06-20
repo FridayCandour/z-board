@@ -1,0 +1,13 @@
+project.version = 1.0.0;
+
+project.info = {
+ name: "PayPaddy",
+ description: "fintech",
+ amount: 250
+};
+ 
+project.tasks = [
+{
+name: "design the pages skeleton"
+}
+];
